@@ -24,7 +24,7 @@ namespace CursoDesignPatterns
             return orcamento.Valor * 0.06; 
         }
 
-        private bool temItemMaiorQue100ReaisNo(Orcamento orcamento)
+        public bool temItemMaiorQue100ReaisNo(Orcamento orcamento)
         {
             foreach (Item item in orcamento.Itens)
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CursoDesignPatterns
 {
-    interface EstadoDeUmOrcamento
+    public interface EstadoDeUmOrcamento
     {
         void AplicacaoDescontoExtra(Orcamento orcamento);
         void Aprova(Orcamento orcamento);   

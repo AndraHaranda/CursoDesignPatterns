@@ -15,7 +15,6 @@ namespace CursoDesignPatterns
         {
             this.OutroImposto = outroImposto;
         }
-
         //construtor default
         public Imposto()
         {

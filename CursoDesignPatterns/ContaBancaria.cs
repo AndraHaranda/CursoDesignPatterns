@@ -8,17 +8,31 @@ namespace CursoDesignPatterns
 {
     public class ContaBancaria
     {
-        public String NomeTitular { get; private set; } 
-        public double Saldo { get; private set; }
-        public DateTime DataAbertura { get; private set; }  
-        
-
-
-        public ContaBancaria(String titular, double saldo)
+        public string NomeTitular { get;  set; } 
+        public double Saldo { get; set; }
+        public DateTime DataAbertura { get;  set; }
+      
+        public ContaBancaria(string titular, double saldo)
         {
             this.NomeTitular = titular;
             this.Saldo = saldo;
         }
-        
-    }
+        public interface IEstadoDaConta
+        {
+            void Saca(ContaBancaria c, double valor);
+            void Deposita(ContaBancaria c, double valor);
+        }
+        public class Positivo : IEstadoDaConta
+        {
+            public void Saca(ContaBancaria c, double valor) 
+            { 
+                c.Saldo -= valor;
+            }
+            public void Deposita(ContaBancaria c, double valor) 
+            {
+                c.Saldo += valor;
+            }
+        }
+    } 
 }
+

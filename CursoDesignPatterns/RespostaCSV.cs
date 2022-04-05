@@ -8,7 +8,7 @@ namespace CursoDesignPatterns
 {
      class RespostaCSV : Resposta
     {
-        public Resposta OutraResposta { get; private set; }
+        public Resposta OutraResposta { get; set; }
 
         public void Responde(Requisicao req, ContaBancaria conta)
         {
@@ -18,7 +18,7 @@ namespace CursoDesignPatterns
             }
             else
             {
-                OutraResposta.Responde(req, conta);
+                OutraResposta?.Responde(req, conta);
             }
         }
     }

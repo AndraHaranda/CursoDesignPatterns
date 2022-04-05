@@ -8,7 +8,7 @@ namespace CursoDesignPatterns
 {
      class RespostaXML : Resposta
     {
-        public Resposta OutraResposta { get; private set; }
+        public Resposta OutraResposta { get; set; }
 
         public void Responde(Requisicao req, ContaBancaria conta)
         {

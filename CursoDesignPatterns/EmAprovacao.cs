@@ -1,26 +1,39 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-//namespace CursoDesignPatterns
-//{
-//     class EmAprovacao : EstadoDeUmOrcamento
-//    {
-//        public void AplicaDescontoExtra(Orcamento orcamento)
-//        {
-//            orcamento.Valor += - (orcamento.Valor * 0.05);
-//        } 
-//        public void Aprova(Orcamento orcamento)
-//        {
-//            orcamento.EstadoAtual = new Aprovado();
-//        }
+namespace CursoDesignPatterns
+{ 
+    public class EmAprovacao : EstadoDeUmOrcamento
+   {
+        private bool descontoAplicado = false;
+        public void AplicacaoDescontoExtra(Orcamento orcamento)
+        {
+            if(!descontoAplicado) 
+            {
+            orcamento.Valor -= orcamento.Valor * 0.05;
+            descontoAplicado = true;
+            }
+            else 
+            {
+            throw new Exception("Desconto já aplicado!");
+            }
+         
+        } 
+        public void Aprova(Orcamento orcamento) 
+        {
+            orcamento.EstadoAtual = new Aprovado();
+        }
+        public void Reprova(Orcamento orcamento)
+        {
+           orcamento.EstadoAtual = new Reprovado();
+        }
+        public void Finaliza(Orcamento orcamento)
+        {
+           throw new Exception ("Orçamento em aprovação não pode ir para finalizado direto");
+        }
 
-//        public void Reprova(Orcamento orcamento)
-//        {
-//            orcamento.EstadoAtual = new Reprovado();
-//        }
-
-//    }
-//}
+   }
+}

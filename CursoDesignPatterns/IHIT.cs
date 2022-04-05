@@ -21,7 +21,6 @@ namespace CursoDesignPatterns
                 else
                     noOrcamento.Add(item.Nome);
             }
-
             return false;
         }
         public override double MaximaTaxacao(Orcamento orcamento)
